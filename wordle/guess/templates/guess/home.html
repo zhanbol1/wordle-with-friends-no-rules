@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вордли без границ</title>
+    <link rel="stylesheet" href="{% static 'guess/css/style.css'%}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <p class="header_font">Досуңа сөз жашыр</p>
+            <p class="header_font">Set a word for friend</p>
+        </div>
+        <div class="body">
+            <p>Сөз 1-10 тамгалардан тура алат</p>
+            <p>Word can contain 1-10 letters</p>
+            <input type="text" id="input">
+            
+        </div>
+        <button class="copy" id="copy">Copy</button>
+        <div class="alert-container bactive">Copied!</div>
+    </div>
+    <script src="{% static 'guess/js/script.js'%}"></script>
+</body>
+</html>

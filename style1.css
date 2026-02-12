@@ -1,0 +1,197 @@
+[hidden] {
+  display: none !important;
+}
+
+.lose-container{
+    position: absolute;
+    top:25%;
+    left:34%;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+}
+.lose-header{
+    width: 100%;
+    background-color: #d3d6da;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.win-container{
+    position: absolute;
+    top:25%;
+    left:34%;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+}
+.win-header{
+    width: 100%;
+    background-color: #d3d6da;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.btn{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background-color: aqua;
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 6px;
+}
+
+.tile {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #d3d6da;
+    background-color: #ffffff;
+    display:flex;
+    position: relative;
+    /* align-items: center;
+    justify-content: center; */
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+.letter{
+    position:absolute;
+    top:10%;
+    left:35%;
+}
+.power{
+    color:black;
+    position: absolute;
+    font-size:20px;
+    top:0;
+    right:5%;
+}
+
+/* Make tiles visually empty: white background and hide any letters */
+.tile {
+    background-color: #ffffff;
+    color: #000000; /* hides letters while preserving layout */
+}
+.tile.correct, .tile.present, .tile.absent {
+    background-color: #ffffff !important;
+    color: transparent !important;
+    border-color: #d3d6da !important;
+}
+
+/* Neutral keyboard styles (apply if keyboard markup is present) */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+}
+.key {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    color: #000000;
+    border: 1px solid #d3d6da;
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: 0.5 ease;
+}
+
+.key:active{
+    transform: scale(0.95);
+}
+.key.correct, .key.present, .key.absent {
+    background-color: #e6e6e6 !important;
+    color: #000000 !important;
+}
+
+/* Optional: show empty placeholders with subtle inner shadow */
+.tile:empty {
+    box-shadow: inset 0 0 0 2px transparent;
+}
+
+/* Page layout + header */
+.page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:12px 8px;
+    box-sizing:border-box;
+}
+.title{
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+main{
+    width:100%;
+    max-width:380px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* center the grid */
+.game-grid{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.keyboard{
+    margin-top:10px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    align-items:center;
+}
+.keyboard-row{
+    width:100%;
+    display:flex;
+    gap:6px;
+    justify-content:center;
+}
+.key{ min-width:32px; height:36px; font-size:14px; padding:4px 8px; }
+.key.wide{ min-width:56px; padding:0 10px; }
+
+/* neutralize any color classes that may be toggled by JS */
+.tile.correct, .tile.present, .tile.absent,
+.key.correct, .key.present, .key.absent {
+    transition: none !important;
+}

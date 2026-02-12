@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отгадай слово друга</title>
+    <link rel="stylesheet" href="{%static 'guess/css/game.css'%}">
+</head>
+<body>
+    <div hidden id="secret">{{word}}</div>
+    <div class="page">
+        <header class="title">ВОРДЛИ</header>
+        <div class="win-container" hidden id="win">
+            <button onclick="location.href='{%url 'home' %}'" class="btn">Жаңы сөз жашыруу</button>
+        </div>
+        <div class="lose-container" hidden id="lost">
+            <button onclick="location.href='{%url 'home' %}'" class="btn">Жаңы сөз жашыруу</button>
+        </div>
+
+        <main>
+            <div class="game-grid" aria-hidden="true">
+
+                {% for row in sixRows %}
+                    <div class="row">
+                    {% for letter in word%}
+                        <div class="tile">
+                            <div class="letter" id="r{{forloop.parentloop.counter}}c{{forloop.counter}}"></div>
+                            <div class="power"></div>
+                        </div>
+                    {%endfor%}
+                    </div>
+                {%endfor%}
+
+            </div>    
+
+            <!-- On-screen keyboard (neutral appearance) -->
+            <div class="keyboard" role="application" aria-label="keyboard">
+                <div class="keyboard-row">
+                    <button class="key" id="l1">й</button>
+                    <button class="key" id="l2">ц</button>
+                    <button class="key" id="l3">у</button>
+                    <button class="key" id="l4">ү</button>
+                    <button class="key" id="l5">к</button>
+                    <button class="key" id="l6">е</button>
+                    <button class="key" id="l7">н</button>
+                    <button class="key" id="l8">ң</button>
+                    <button class="key" id="l9">г</button>
+                    <button class="key" id="l10">ш</button>
+                    <button class="key" id="l11">щ</button>
+                    <button class="key" id="l12">з</button>
+                    <button class="key" id="l13">х</button>
+                    <button class="key" id="l14">ъ</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key" id="l15">ф</button>
+                    <button class="key" id="l16">ы</button>
+                    <button class="key" id="l17">в</button>
+                    <button class="key" id="l18">а</button>
+                    <button class="key" id="l19">п</button>
+                    <button class="key" id="l20">р</button>
+                    <button class="key" id="l21">о</button>
+                    <button class="key" id="l22">ө</button>
+                    <button class="key" id="l23">л</button>
+                    <button class="key" id="l24">д</button>
+                    <button class="key" id="l25">ж</button>
+                    <button class="key" id="l26">э</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key wide" id="back">⌫</button>
+                    <button class="key" id="l27">я</button>
+                    <button class="key" id="l28">ч</button>
+                    <button class="key" id="l29">с</button>
+                    <button class="key" id="l30">м</button>
+                    <button class="key" id="l31">и</button>
+                    <button class="key" id="l32">т</button>
+                    <button class="key" id="l33">ь</button>
+                    <button class="key" id="l34">б</button>
+                    <button class="key" id="l35">ю</button>
+                    <button class="key wide" id="enter">Enter</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{%static 'guess/js/game.js'%}"></script>
+</body>
+</html>

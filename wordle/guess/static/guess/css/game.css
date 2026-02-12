@@ -1,0 +1,330 @@
+[hidden] {
+  display: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.lose-container,
+.win-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 100;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s ease-out;
+}
+
+.lose-container {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.lose-container::before {
+    content: '✗';
+    font-size: 48px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.win-container {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.win-container::before {
+    content: '✓';
+    font-size: 48px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.lose-container p,
+.win-container p {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.btn{
+    width: 100%;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.tile {
+    width: 47px;
+    height: 47px;
+    border: 2px solid #d3d6da;
+    background-color: #ffffff;
+    display: flex;
+    position: relative;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.letter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.power{
+    color: black;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 700;
+    top: 2px;
+    right: 3px;
+}
+
+.tile {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.tile.correct {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border-color: #059669 !important;
+    transform: scale(1.05) rotateY(10deg);
+}
+
+.tile.present {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: white !important;
+    border-color: #d97706 !important;
+    transform: scale(1.05) rotateY(10deg);
+}
+
+.tile.absent {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%) !important;
+    color: white !important;
+    border-color: #4b5563 !important;
+    opacity: 0.8;
+}
+
+/* Neutral keyboard styles (apply if keyboard markup is present) */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.key {
+    cursor: pointer;
+    background-color: #f3f3f3;
+    color: #000000;
+    border: 1px solid #d3d6da;
+    border-radius: 4px;
+    padding: 6px 6px;
+    min-width: 28px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 11px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.key:hover {
+    background-color: #e6e6e6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.key:active{
+    transform: scale(0.95);
+}
+
+.key.correct {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border-color: #059669 !important;
+}
+
+.key.present {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: white !important;
+    border-color: #d97706 !important;
+}
+
+.key.absent {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%) !important;
+    color: white !important;
+    border-color: #4b5563 !important;
+    opacity: 0.8;
+}
+
+/* Optional: show empty placeholders with subtle inner shadow */
+.tile:empty {
+    box-shadow: inset 0 0 0 2px transparent;
+}
+
+/* Page layout + header */
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 4px;
+    box-sizing: border-box;
+    background: #f5f7fa;
+    overflow: hidden;
+    position: relative;
+}
+
+.title{
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    background-color:#667eea;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+main{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* center the grid */
+.game-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.keyboard{
+    margin-top: 12px;
+    width: 100%;
+    padding: 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.keyboard-row{
+    width: 100%;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.key {
+    min-width: 45px;
+    height: 45px; 
+    font-size: 20px;
+    padding: 7px 7px;
+}
+
+.key.wide {
+    min-width: 70px;
+    padding: 5px 10px;
+}
+
+/* Animation for tiles */
+@keyframes flipIn {
+    0% {
+        transform: rotateX(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg) scale(1);
+    }
+    100% {
+        transform: rotateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.tile.animate {
+    animation: flipIn 0.6s ease-in-out;
+}
