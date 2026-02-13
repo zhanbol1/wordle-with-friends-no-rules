@@ -100,7 +100,7 @@ let copyHaveNumber = {...haveNumber};
 function cornerNumber(i,count){
     rowIdx = getRowIdx();
     const letterEl = document.getElementById(`r${rowIdx}c${i+1}`).nextElementSibling;
-    
+
     letterEl.innerHTML = count;
 }
 
@@ -121,6 +121,11 @@ function process(){
                 if(i == j){
                     paintKeyboard(guess[i], "green");
                     paintLetter(i, "green");
+                    
+                    if(originalWord[guess[i]]>1){
+                        cornerNumber(i,originalWord[guess[i]]);
+                        haveNumber[guess[i]]=true;
+                    }
 
                     originalWord[guess[i]]--;
                 }
