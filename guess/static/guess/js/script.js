@@ -72,8 +72,9 @@ copyEl.onclick =  function() {
             }
             if(flag){
                 let generated_link = decode(slovo);
-                //https://janbol.pythonanywhere.com/
-                let link = "http://127.0.0.1:8000/home/" + generated_link;
+                //https://janbol.pythonanywhere.com/ if pythonanywhere website
+                //https://personalwordle.up.railway.app/ if railway
+                let link = "https://personalwordle.up.railway.app/game/" + generated_link;
                 navigator.clipboard.writeText(link);
 
                 alertText.classList.remove('bactive');
